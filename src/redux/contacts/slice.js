@@ -3,7 +3,7 @@ import {
   addContactThunk,
   deleteContactThunk,
   fetchContactThunk,
-} from "./contactsOps";
+} from "./operations";
 
 const initialState = {
   items: [],

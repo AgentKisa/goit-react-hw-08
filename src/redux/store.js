@@ -11,8 +11,8 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/slice";
-import { filterReducer } from "./filters/filtersSlice";
-import { contactReducer } from "./contacts/contactsSlice";
+import { filterReducer } from "./filters/slice";
+import { contactReducer } from "./contacts/slice";
 
 const authPersistConfig = {
   key: "authSlice",
