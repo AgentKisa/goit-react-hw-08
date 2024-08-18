@@ -1,9 +1,25 @@
 .wrapper {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 20px;
+    color: #FFD700;
 }
 
 .username {
-    font-weight: 700;
+    font-weight: bold;
+}
+
+button {
+    background-color: #FFD700;
+    color: #000000;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e84a5f;
+    color: #ffffff;
 }

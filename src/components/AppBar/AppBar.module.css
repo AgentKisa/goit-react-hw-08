@@ -3,5 +3,22 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
-    border-bottom: 1px solid #2a363b;
+    border-bottom: 2px solid #e84a5f;
+    background-color: #000000;
+    padding: 10px 20px;
+    color: #FFD700;
+}
+
+.header a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: #e84a5f;
+}
+
+.header div {
+    display: flex;
+    gap: 20px;
 }

@@ -33,7 +33,7 @@ export default function LoginForm() {
           <Field type="password" name="password" />
         </label>
         <button type="submit">Log In</button>
-        {error && <div>Incorrect name or password!</div>}
+        {error && <div className={css.error}>Incorrect name or password!</div>}
       </Form>
     </Formik>
   );

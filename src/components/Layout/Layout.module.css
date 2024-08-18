@@ -1,5 +1,6 @@
 .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 16px;
+    background-color: #000000;
+    color: #FFD700;
+    min-height: 100vh;
+    padding: 20px;
 }

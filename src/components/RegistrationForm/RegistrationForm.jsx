@@ -38,7 +38,7 @@ export default function RegistrationForm() {
           <Field type="password" name="password" />
         </label>
         <button type="submit">Register</button>
-        {error && <div>Registration failed!</div>}
+        {error && <div className={css.error}>Registration failed!</div>}
       </Form>
     </Formik>
   );

@@ -3,13 +3,8 @@ import PageTitle from "../components/PageTitle/PageTitle";
 export default function Home() {
   return (
     <div>
-      <PageTitle>
-        Task manager welcome page{" "}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-      </PageTitle>
-      <p>Lorem</p>
+      <PageTitle>Hi frend!</PageTitle>
+      <p>On this site you can add your contacts!</p>
     </div>
   );
 }

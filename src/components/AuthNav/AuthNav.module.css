@@ -3,9 +3,11 @@
     text-decoration: none;
     padding: 12px;
     font-weight: 700;
-    color: #2a363b;
+    color: #FFD700;
+    transition: color 0.3s ease;
 }
 
-.link.active {
+.link.active,
+.link:hover {
     color: #e84a5f;
 }
