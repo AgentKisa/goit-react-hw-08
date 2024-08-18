@@ -1,10 +1,5 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { RiLinkedinBoxFill } from "react-icons/ri";
-
-// const axios = axiosLib.create({
-//   baseURL: "https://connections-api.goit.global/",
-// });
 
 export const fetchContactThunk = createAsyncThunk(
   "contacts/fetchAll",

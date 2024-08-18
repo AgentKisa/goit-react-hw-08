@@ -2,7 +2,7 @@ import React from "react";
 import ContactList from "../components/ContactList/ContactList";
 import ContactForm from "../components/ContactForm/ContactForm";
 import SearchBox from "../components/SearchBox/SearchBox";
-import { fetchContactThunk } from "../redux/contactsOps";
+import { fetchContactThunk } from "../redux/contacts/contactsOps";
 import { selectIsError, selectIsLoading } from "../redux/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
