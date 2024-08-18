@@ -1,22 +1,19 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field } from "formik";
 import css from "./RegistrationForm.module.css";
 import { register } from "../../redux/auth/operations";
+import { selectAuthIsError } from "../../redux/auth/selectors";
 
 export default function RegistrationForm() {
   const dispatch = useDispatch();
+  const error = useSelector(selectAuthIsError);
 
   const handleSubmit = (values, actions) => {
     dispatch(register(values));
-    actions.resetForm();
+    if (register.fulfilled.match(resultAction)) {
+      actions.resetForm();
+    }
   };
-
-  //   const handleSubmit = async (values, actions) => {
-  //     const resultAction = await dispatch(register(values));
-  //     if (register.fulfilled.match(resultAction)) {
-  //       actions.resetForm(); // Обнуляет форму только если регистрация успешна
-  //     }
-  //   };
 
   return (
     <Formik
@@ -41,6 +38,7 @@ export default function RegistrationForm() {
           <Field type="password" name="password" />
         </label>
         <button type="submit">Register</button>
+        {error && <div>Registration failed!</div>}
       </Form>
     </Formik>
   );

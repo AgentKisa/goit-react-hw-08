@@ -1,14 +1,18 @@
 import { Formik, Form, Field } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
 import css from "./LoginForm.module.css";
+import { selectAuthIsError } from "../../redux/auth/selectors";
 
 export default function LoginForm() {
   const dispatch = useDispatch();
+  const error = useSelector(selectAuthIsError);
 
   const handleSubmit = (values, actions) => {
     dispatch(logIn(values));
-    actions.resetForm();
+    if (logIn.fulfilled.match(resultAction)) {
+      actions.resetForm();
+    }
   };
 
   return (
@@ -29,6 +33,7 @@ export default function LoginForm() {
           <Field type="password" name="password" />
         </label>
         <button type="submit">Log In</button>
+        {error && <div>Incorrect name or password!</div>}
       </Form>
     </Formik>
   );
