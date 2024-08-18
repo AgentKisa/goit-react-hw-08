@@ -1,10 +1,7 @@
-import axiosLib from "axios";
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-// const axios = axiosLib.create({
-//   baseURL: "https://connections-api.goit.global/",
-// });
+axios.defaults.baseURL = "https://connections-api.goit.global/";
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -18,10 +15,7 @@ export const register = createAsyncThunk(
   "auth/register",
   async (userInfo, thunkAPI) => {
     try {
-      const response = await axios.post(
-        `https://connections-api.goit.global/users/signup`,
-        userInfo
-      );
+      const response = await axios.post(`users/signup`, userInfo);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
@@ -38,10 +32,7 @@ export const logIn = createAsyncThunk(
   "auth/login",
   async (userInfo, thunkAPI) => {
     try {
-      const response = await axios.post(
-        "https://connections-api.goit.global/users/login",
-        userInfo
-      );
+      const response = await axios.post("users/login", userInfo);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
@@ -52,7 +43,7 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
-    await axios.post("https://connections-api.goit.global/users/logout");
+    await axios.post("users/logout");
     clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -65,9 +56,7 @@ export const refreshUser = createAsyncThunk(
     const reduxState = thunkAPI.getState();
     const savedToken = reduxState.auth.token;
     setAuthHeader(savedToken);
-    const response = await axios.get(
-      "https://connections-api.goit.global/users/current"
-    );
+    const response = await axios.get("users/current");
     return response.data;
   },
   {
